@@ -34,7 +34,7 @@ export async function POST(req: Request) {
     business: body.business?.trim().slice(0, 200) ?? "",
     need: body.need?.trim().slice(0, 100) ?? "",
     message: body.message?.trim().slice(0, 2000) ?? "",
-    locale: body.locale ?? "ar",
+    locale: ["ar", "ary", "fr", "en"].includes(body.locale ?? "") ? (body.locale as string) : "ar",
     source: "website",
   };
 

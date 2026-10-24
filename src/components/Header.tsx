@@ -3,15 +3,15 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Logo } from "./Logo";
-import { locales, type Locale } from "@/i18n/config";
+import { locales, localeLabels, type Locale } from "@/i18n/config";
 import type { Dict } from "@/i18n/dictionaries";
 
-const localeLabel: Record<Locale, string> = { ar: "ع", fr: "FR", en: "EN" };
 
 export function Header({ locale, t }: { locale: Locale; t: Dict["nav"] }) {
   const [open, setOpen] = useState(false);
   const links = [
     ["#services", t.services],
+    ["#tech", t.tech],
     ["#creators", t.creators],
     ["#packages", t.packages],
     ["#work", t.work],
@@ -19,15 +19,15 @@ export function Header({ locale, t }: { locale: Locale; t: Dict["nav"] }) {
   ] as const;
 
   return (
-    <header className="sticky top-0 z-40 bg-cream/85 backdrop-blur-md border-b border-line">
+    <header className="sticky top-0 z-40 bg-night/85 backdrop-blur-md border-b border-line">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
         <Link href={`/${locale}`} aria-label="OROM UGG">
           <Logo />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-7 text-[15px] text-roast">
+        <nav className="hidden lg:flex items-center gap-6 text-[15px] text-snow">
           {links.map(([href, label]) => (
-            <a key={href} href={href} className="hover:text-umber transition-colors">
+            <a key={href} href={href} className="hover:text-lime transition-colors">
               {label}
             </a>
           ))}
@@ -41,10 +41,10 @@ export function Header({ locale, t }: { locale: Locale; t: Dict["nav"] }) {
                 href={`/${l}`}
                 hrefLang={l}
                 className={`px-2.5 py-1 rounded-full transition-colors ${
-                  l === locale ? "bg-roast text-cream" : "text-roast hover:bg-sand"
+                  l === locale ? "bg-lime text-abyss" : "text-snow hover:bg-panel"
                 }`}
               >
-                {localeLabel[l]}
+                {localeLabels[l]}
               </Link>
             ))}
           </div>
@@ -53,7 +53,7 @@ export function Header({ locale, t }: { locale: Locale; t: Dict["nav"] }) {
           </a>
           <button
             type="button"
-            className="lg:hidden p-2 rounded-md text-roast"
+            className="lg:hidden p-2 rounded-md text-snow"
             aria-expanded={open}
             aria-label="Menu"
             onClick={() => setOpen((v) => !v)}
@@ -66,13 +66,13 @@ export function Header({ locale, t }: { locale: Locale; t: Dict["nav"] }) {
       </div>
 
       {open && (
-        <nav className="lg:hidden border-t border-line bg-cream px-4 py-3 flex flex-col">
+        <nav className="lg:hidden border-t border-line bg-night px-4 py-3 flex flex-col">
           {links.map(([href, label]) => (
             <a
               key={href}
               href={href}
               onClick={() => setOpen(false)}
-              className="py-3 text-roast border-b border-line last:border-0"
+              className="py-3 text-snow border-b border-line last:border-0"
             >
               {label}
             </a>

@@ -1,6 +1,6 @@
 # OROM UGG — site de l'agence
 
-Next.js 16 · Tailwind 4 · trilingue (ar / fr / en, RTL automatique) · prêt pour Vercel.
+Next.js 16 · Tailwind 4 · quadrilingue (ar / ary darija / fr / en, RTL automatique) · thème sombre + accent lime · prêt pour Vercel.
 
 ## Lancer en local
 
@@ -9,7 +9,7 @@ npm install
 npm run dev
 ```
 
-Ouvrir http://localhost:3000 — redirige vers `/ar`, `/fr` ou `/en` selon la langue du navigateur.
+Ouvrir http://localhost:3000 — redirige vers `/ar`, `/ary`, `/fr` ou `/en` selon la langue du navigateur.
 
 ## Déployer sur Vercel
 

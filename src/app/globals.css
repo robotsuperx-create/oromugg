@@ -1,31 +1,35 @@
 @import "tailwindcss";
 
 /* ─── OROM UGG design tokens ─────────────────────────────────────────
-   Palette: dark roast brown, warm umber, tan, sand, cream.
-   One memorable element per page (the film-strip hero); everything
-   else stays quiet. */
+   Dark cinematic base with a single lime accent (matched to Higgsfield:
+   #D1FE17 on #131517). One memorable element per page — the film-strip
+   hero — everything else stays quiet. */
 :root {
-  --sand: #e9dfcf;
-  --cream: #f6f1e8;
-  --paper: #fbf8f3;
-  --tan: #c8a97e;
-  --umber: #6b4a32;
-  --roast: #3a2819;
-  --espresso: #241910;
-  --ink: #1b120b;
-  --line: rgba(58, 40, 25, 0.14);
-  --line-strong: rgba(58, 40, 25, 0.3);
+  --night: #131517;        /* page background */
+  --abyss: #0b0c0e;        /* deeper bands */
+  --panel: #1c1e21;        /* cards, forms */
+  --panel-2: #23262a;      /* elevated surfaces */
+  --snow: #f7f7f8;         /* primary text */
+  --mist: #a3a5a8;         /* secondary text */
+  --dim: #898a8b;          /* tertiary text */
+  --lime: #d1fe17;         /* accent */
+  --pistachio: #c5d9a2;    /* soft accent for small text */
+  --olive: #2f3907;        /* deep lime for gradients */
+  --line: rgba(255, 255, 255, 0.1);
+  --line-strong: rgba(255, 255, 255, 0.22);
 }
 
 @theme inline {
-  --color-sand: var(--sand);
-  --color-cream: var(--cream);
-  --color-paper: var(--paper);
-  --color-tan: var(--tan);
-  --color-umber: var(--umber);
-  --color-roast: var(--roast);
-  --color-espresso: var(--espresso);
-  --color-ink: var(--ink);
+  --color-night: var(--night);
+  --color-abyss: var(--abyss);
+  --color-panel: var(--panel);
+  --color-panel-2: var(--panel-2);
+  --color-snow: var(--snow);
+  --color-mist: var(--mist);
+  --color-dim: var(--dim);
+  --color-lime: var(--lime);
+  --color-pistachio: var(--pistachio);
+  --color-olive: var(--olive);
   --color-line: var(--line);
   --color-line-strong: var(--line-strong);
   --font-display: "Fraunces", "Noto Naskh Arabic", Georgia, serif;
@@ -35,11 +39,12 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
-  background: var(--cream);
-  color: var(--ink);
+  background: var(--night);
+  color: var(--snow);
   font-family: var(--font-body);
   font-feature-settings: "kern", "liga";
   -webkit-font-smoothing: antialiased;
@@ -47,7 +52,12 @@ body {
   overflow-x: hidden;
 }
 
-/* Display type: serif Fraunces for Latin, Naskh for Arabic. */
+::selection {
+  background: var(--lime);
+  color: var(--abyss);
+}
+
+/* Display type: serif Fraunces for Latin, Naskh for Arabic & Darija. */
 .display {
   font-family: var(--font-display);
   font-weight: 500;
@@ -64,21 +74,22 @@ body {
 
 .eyebrow {
   font-size: 0.8125rem;
-  color: var(--umber);
+  color: var(--pistachio);
 }
 
-/* Film-strip frames (hero + work) */
+/* Film-strip frames (hero + creators) */
 .frame {
   position: relative;
   aspect-ratio: 9 / 16;
   border-radius: 14px;
   overflow: hidden;
   background:
-    radial-gradient(120% 80% at 30% 20%, rgba(200, 169, 126, 0.55), transparent 60%),
-    linear-gradient(160deg, var(--umber) 0%, var(--roast) 55%, var(--espresso) 100%);
+    radial-gradient(120% 80% at 30% 20%, rgba(209, 254, 23, 0.38), transparent 60%),
+    linear-gradient(160deg, var(--olive) 0%, #171c08 45%, var(--abyss) 100%);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.08) inset,
-    0 30px 60px -30px rgba(27, 18, 11, 0.6);
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 30px 60px -30px rgba(0, 0, 0, 0.8);
 }
 .frame::after {
   content: "";
@@ -95,14 +106,14 @@ body {
   width: 10px;
   background-image: repeating-linear-gradient(
     180deg,
-    rgba(246, 241, 232, 0.55) 0 7px,
+    rgba(209, 254, 23, 0.6) 0 7px,
     transparent 7px 16px
   );
   border-radius: 2px;
   opacity: 0.55;
 }
 
-/* Grain for dark sections */
+/* Grain for deep bands */
 .grain {
   position: relative;
   isolation: isolate;
@@ -112,7 +123,7 @@ body {
   position: absolute;
   inset: 0;
   z-index: -1;
-  opacity: 0.08;
+  opacity: 0.07;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   pointer-events: none;
 }
@@ -139,7 +150,7 @@ body {
 
 /* Focus */
 :where(a, button, input, select, textarea):focus-visible {
-  outline: 2px solid var(--umber);
+  outline: 2px solid var(--lime);
   outline-offset: 3px;
   border-radius: 6px;
 }
@@ -154,28 +165,27 @@ body {
   border-radius: 999px;
   font-weight: 600;
   font-size: 0.95rem;
-  transition: transform 160ms ease, background-color 160ms ease, color 160ms ease;
+  transition: transform 160ms ease, background-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
 }
 .btn:active { transform: translateY(1px); }
-.btn-primary { background: var(--roast); color: var(--cream); }
-.btn-primary:hover { background: var(--espresso); }
-.btn-outline { border: 1px solid var(--line-strong); color: var(--roast); }
-.btn-outline:hover { background: var(--sand); }
-.btn-light { background: var(--cream); color: var(--roast); }
-.btn-light:hover { background: var(--paper); }
+.btn-primary { background: var(--lime); color: var(--abyss); }
+.btn-primary:hover { background: #e0ff5a; box-shadow: 0 0 0 4px rgba(209, 254, 23, 0.18); }
+.btn-outline { border: 1px solid var(--line-strong); color: var(--snow); }
+.btn-outline:hover { background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.4); }
 
 /* Form fields */
 .field {
   width: 100%;
   border: 1px solid var(--line-strong);
-  background: var(--paper);
+  background: var(--night);
   border-radius: 10px;
   padding: 0.85rem 1rem;
   font-size: 0.95rem;
-  color: var(--ink);
+  color: var(--snow);
 }
-.field::placeholder { color: rgba(27, 18, 11, 0.45); }
-.field:focus { border-color: var(--umber); outline: none; box-shadow: 0 0 0 3px rgba(107, 74, 50, 0.15); }
+.field::placeholder { color: var(--dim); }
+.field:focus { border-color: var(--lime); outline: none; box-shadow: 0 0 0 3px rgba(209, 254, 23, 0.18); }
+select.field option { background: var(--panel); color: var(--snow); }
 
 /* Hairline sections */
 .rule { border-top: 1px solid var(--line); }

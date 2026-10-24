@@ -8,15 +8,15 @@ function Frame({ label, views, tall }: { label: string; views: string; tall?: bo
       <span className="frame-perfs" style={{ insetInlineEnd: 6 }} aria-hidden="true" />
       <span
         aria-hidden="true"
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-12 w-12 rounded-full border border-cream/60 flex items-center justify-center"
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-12 w-12 rounded-full border border-lime/70 bg-abyss/40 flex items-center justify-center"
       >
-        <svg width="14" height="16" viewBox="0 0 14 16" fill="var(--cream)">
+        <svg width="14" height="16" viewBox="0 0 14 16" fill="var(--lime)">
           <path d="M1 1.5v13l12-6.5z" />
         </svg>
       </span>
-      <figcaption className="absolute inset-x-5 bottom-5 flex items-end justify-between text-cream">
+      <figcaption className="absolute inset-x-5 bottom-5 flex items-end justify-between text-snow">
         <span className="text-[13px] leading-tight max-w-[70%]">{label}</span>
-        <span className="text-[13px] tabular-nums opacity-85">▶ {views}</span>
+        <span className="text-[13px] tabular-nums text-lime">▶ {views}</span>
       </figcaption>
     </figure>
   );
@@ -29,17 +29,24 @@ export function Hero({ t }: { t: Dict["hero"] }) {
 
   return (
     <section className="relative overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-10 lg:gap-6 items-center pt-16 pb-10 lg:pt-24 lg:pb-20">
+      {/* soft lime glow behind the headline */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-40 start-[-10%] h-[520px] w-[520px] rounded-full opacity-30 blur-3xl"
+        style={{ background: "radial-gradient(closest-side, rgba(209,254,23,0.55), transparent)" }}
+      />
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-10 lg:gap-6 items-center pt-16 pb-10 lg:pt-24 lg:pb-20">
         <div className="lg:col-span-7">
           <p className="eyebrow rise">{t.kicker}</p>
-          <h1 className="display mt-5 text-[clamp(3.25rem,9vw,7.5rem)] text-roast rise rise-2">
+          <h1 className="display mt-5 text-[clamp(2.5rem,6.2vw,5.5rem)] text-snow rise rise-2">
             {t.title.map((line, i) => (
               <span key={i} className="block">
                 {line}
               </span>
             ))}
           </h1>
-          <p className="mt-7 max-w-[34rem] text-[1.0625rem] leading-relaxed text-ink/80 rise rise-3">
+          <p className="display mt-4 text-[clamp(1.5rem,3.2vw,2.75rem)] text-lime rise rise-2">{t.tagline}</p>
+          <p className="mt-7 max-w-[36rem] text-[1.0625rem] leading-relaxed text-mist rise rise-3">
             {t.text}
           </p>
           <div className="mt-9 flex flex-wrap gap-3 rise rise-3">

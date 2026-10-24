@@ -11,8 +11,8 @@ export function Proof({ items }: { items: Dict["proof"] }) {
               i >= 2 ? "border-t border-line lg:border-t-0" : ""
             } lg:ps-8 lg:border-s lg:first:border-s-0 lg:first:ps-0`}
           >
-            <div className="display text-4xl lg:text-5xl text-roast tabular-nums">{it.value}</div>
-            <p className="mt-2 text-[15px] text-ink/70 max-w-[14rem] leading-snug">{it.label}</p>
+            <div className="display text-4xl lg:text-5xl text-snow tabular-nums">{it.value}</div>
+            <p className="mt-2 text-[15px] text-mist max-w-[14rem] leading-snug">{it.label}</p>
           </div>
         ))}
       </div>

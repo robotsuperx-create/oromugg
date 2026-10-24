@@ -13,29 +13,29 @@ const icons = [
 
 export function Services({ t }: { t: Dict["services"] }) {
   return (
-    <section id="services" className="grain bg-espresso text-cream scroll-mt-16">
+    <section id="services" className="grain bg-abyss text-snow scroll-mt-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
         <div className="max-w-2xl">
           <h2 className="display text-4xl sm:text-5xl lg:text-6xl">{t.heading}</h2>
-          <p className="mt-5 text-lg text-cream/70">{t.intro}</p>
+          <p className="mt-5 text-lg text-mist">{t.intro}</p>
         </div>
 
-        <div className="mt-14 grid sm:grid-cols-2 border-t border-cream/15">
+        <div className="mt-14 grid sm:grid-cols-2 border-t border-line">
           {t.items.map((s, i) => (
             <article
               key={s.title}
-              className={`py-9 sm:py-11 border-b border-cream/15 ${
-                i % 2 === 0 ? "sm:pe-10 sm:border-e sm:border-cream/15" : "sm:ps-10"
+              className={`py-9 sm:py-11 border-b border-line ${
+                i % 2 === 0 ? "sm:pe-10 sm:border-e sm:border-line" : "sm:ps-10"
               }`}
             >
-              <div className="h-9 w-9 text-tan">{icons[i]}</div>
+              <div className="h-9 w-9 text-lime">{icons[i]}</div>
               <h3 className="mt-5 text-2xl font-semibold">{s.title}</h3>
-              <p className="mt-3 text-cream/70 leading-relaxed max-w-[32rem]">{s.text}</p>
+              <p className="mt-3 text-mist leading-relaxed max-w-[32rem]">{s.text}</p>
               <ul className="mt-5 space-y-1.5 text-[15px]">
                 {s.points.map((p) => (
                   <li key={p} className="flex gap-2.5">
-                    <span className="mt-[0.65em] h-1.5 w-1.5 rounded-full bg-tan shrink-0" aria-hidden="true" />
-                    <span className="text-cream/85">{p}</span>
+                    <span className="mt-[0.65em] h-1.5 w-1.5 rounded-full bg-lime shrink-0" aria-hidden="true" />
+                    <span className="text-snow/85">{p}</span>
                   </li>
                 ))}
               </ul>

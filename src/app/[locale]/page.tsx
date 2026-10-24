@@ -5,6 +5,7 @@ import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { Proof } from "@/components/Proof";
 import { Services } from "@/components/Services";
+import { Tech } from "@/components/Tech";
 import { Creators } from "@/components/Creators";
 import { Packages } from "@/components/Packages";
 import { Process } from "@/components/Process";
@@ -24,6 +25,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         <Hero t={t.hero} />
         <Proof items={t.proof} />
         <Services t={t.services} />
+        <Tech t={t.tech} />
         <Creators t={t.creators} cta={t.contact.whatsapp} />
         <Packages t={t.packages} />
         <Process t={t.process} />

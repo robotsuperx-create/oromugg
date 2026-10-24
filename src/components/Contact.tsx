@@ -34,23 +34,23 @@ export function Contact({ t, locale }: { t: Dict["contact"]; locale: Locale }) {
     <section id="contact" className="scroll-mt-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28 grid lg:grid-cols-12 gap-12">
         <div className="lg:col-span-5">
-          <h2 className="display text-4xl sm:text-5xl text-roast">{t.heading}</h2>
-          <p className="mt-5 text-ink/75 leading-relaxed">{t.intro}</p>
+          <h2 className="display text-4xl sm:text-5xl text-snow">{t.heading}</h2>
+          <p className="mt-5 text-mist leading-relaxed">{t.intro}</p>
           <a href={whatsappLink("Salam, OROM UGG — ")} className="btn btn-primary mt-8">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.1.6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3z" />
             </svg>
             {t.whatsapp}
           </a>
-          <dl className="mt-10 space-y-3 text-[15px] text-ink/75">
-            <div className="flex gap-3"><dt className="text-ink/45 w-20 shrink-0">Email</dt><dd><a className="hover:text-umber" href={`mailto:${site.email}`}>{site.email}</a></dd></div>
-            <div className="flex gap-3"><dt className="text-ink/45 w-20 shrink-0">Instagram</dt><dd><a className="hover:text-umber" href={site.instagram} target="_blank" rel="noreferrer">@oromugg</a></dd></div>
-            <div className="flex gap-3"><dt className="text-ink/45 w-20 shrink-0">TikTok</dt><dd><a className="hover:text-umber" href={site.tiktok} target="_blank" rel="noreferrer">@oromugg</a></dd></div>
-            <div className="flex gap-3"><dt className="text-ink/45 w-20 shrink-0">⌖</dt><dd>{t.location}</dd></div>
+          <dl className="mt-10 space-y-3 text-[15px] text-mist">
+            <div className="flex gap-3"><dt className="text-dim w-20 shrink-0">Email</dt><dd><a className="hover:text-lime" href={`mailto:${site.email}`}>{site.email}</a></dd></div>
+            <div className="flex gap-3"><dt className="text-dim w-20 shrink-0">Instagram</dt><dd><a className="hover:text-lime" href={site.instagram} target="_blank" rel="noreferrer">@oromugg</a></dd></div>
+            <div className="flex gap-3"><dt className="text-dim w-20 shrink-0">TikTok</dt><dd><a className="hover:text-lime" href={site.tiktok} target="_blank" rel="noreferrer">@oromugg</a></dd></div>
+            <div className="flex gap-3"><dt className="text-dim w-20 shrink-0">⌖</dt><dd>{t.location}</dd></div>
           </dl>
         </div>
 
-        <form onSubmit={onSubmit} className="lg:col-span-7 grid sm:grid-cols-2 gap-4 rounded-2xl bg-paper border border-line p-6 sm:p-8">
+        <form onSubmit={onSubmit} className="lg:col-span-7 grid sm:grid-cols-2 gap-4 rounded-2xl bg-panel border border-line p-6 sm:p-8">
           <label className="block">
             <span className="sr-only">{f.name}</span>
             <input name="name" required placeholder={f.name} className="field" autoComplete="name" />
@@ -82,7 +82,7 @@ export function Contact({ t, locale }: { t: Dict["contact"]; locale: Locale }) {
             <button type="submit" disabled={status === "sending"} className="btn btn-primary disabled:opacity-60">
               {status === "sending" ? f.sending : f.submit}
             </button>
-            <p className={`text-sm ${status === "error" ? "text-red-800" : "text-ink/70"}`} aria-live="polite">
+            <p className={`text-sm ${status === "error" ? "text-red-400" : "text-mist"}`} aria-live="polite">
               {status === "sent" ? f.sent : status === "error" ? f.error : ""}
             </p>
           </div>
