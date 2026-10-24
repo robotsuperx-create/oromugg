@@ -22,11 +22,11 @@ export function Creators({ t, cta }: { t: Dict["creators"]; cta: string }) {
                     aria-hidden="true"
                     className="absolute inset-0 flex items-center justify-center"
                   >
-                    <span className="h-20 w-20 rounded-full bg-snow/10 border border-lime/50 flex items-center justify-center display text-3xl text-snow">
+                    <span className="h-20 w-20 rounded-full bg-white/10 border border-lime/50 flex items-center justify-center display text-3xl text-white">
                       {p.name.slice(0, 1)}
                     </span>
                   </div>
-                  <div className="absolute inset-x-5 bottom-5 text-snow">
+                  <div className="absolute inset-x-5 bottom-5 text-white">
                     <div className="flex items-baseline justify-between">
                       <span className="text-lg font-semibold">{p.name}</span>
                       <span className="text-[13px] tabular-nums opacity-85">{p.reach}</span>

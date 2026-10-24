@@ -43,9 +43,9 @@ export function Contact({ t, locale }: { t: Dict["contact"]; locale: Locale }) {
             {t.whatsapp}
           </a>
           <dl className="mt-10 space-y-3 text-[15px] text-mist">
-            <div className="flex gap-3"><dt className="text-dim w-20 shrink-0">Email</dt><dd><a className="hover:text-lime" href={`mailto:${site.email}`}>{site.email}</a></dd></div>
-            <div className="flex gap-3"><dt className="text-dim w-20 shrink-0">Instagram</dt><dd><a className="hover:text-lime" href={site.instagram} target="_blank" rel="noreferrer">@oromugg</a></dd></div>
-            <div className="flex gap-3"><dt className="text-dim w-20 shrink-0">TikTok</dt><dd><a className="hover:text-lime" href={site.tiktok} target="_blank" rel="noreferrer">@oromugg</a></dd></div>
+            <div className="flex gap-3"><dt className="text-dim w-20 shrink-0">Email</dt><dd><a className="hover:text-lime-ink" href={`mailto:${site.email}`}>{site.email}</a></dd></div>
+            <div className="flex gap-3"><dt className="text-dim w-20 shrink-0">Instagram</dt><dd><a className="hover:text-lime-ink" href={site.instagram} target="_blank" rel="noreferrer">@oromugg</a></dd></div>
+            <div className="flex gap-3"><dt className="text-dim w-20 shrink-0">TikTok</dt><dd><a className="hover:text-lime-ink" href={site.tiktok} target="_blank" rel="noreferrer">@oromugg</a></dd></div>
             <div className="flex gap-3"><dt className="text-dim w-20 shrink-0">⌖</dt><dd>{t.location}</dd></div>
           </dl>
         </div>

@@ -8,13 +8,13 @@ function Frame({ label, views, tall }: { label: string; views: string; tall?: bo
       <span className="frame-perfs" style={{ insetInlineEnd: 6 }} aria-hidden="true" />
       <span
         aria-hidden="true"
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-12 w-12 rounded-full border border-lime/70 bg-abyss/40 flex items-center justify-center"
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-12 w-12 rounded-full border border-lime/70 bg-black/40 flex items-center justify-center"
       >
         <svg width="14" height="16" viewBox="0 0 14 16" fill="var(--lime)">
           <path d="M1 1.5v13l12-6.5z" />
         </svg>
       </span>
-      <figcaption className="absolute inset-x-5 bottom-5 flex items-end justify-between text-snow">
+      <figcaption className="absolute inset-x-5 bottom-5 flex items-end justify-between text-white">
         <span className="text-[13px] leading-tight max-w-[70%]">{label}</span>
         <span className="text-[13px] tabular-nums text-lime">▶ {views}</span>
       </figcaption>
@@ -33,7 +33,7 @@ export function Hero({ t }: { t: Dict["hero"] }) {
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -top-40 start-[-10%] h-[520px] w-[520px] rounded-full opacity-30 blur-3xl"
-        style={{ background: "radial-gradient(closest-side, rgba(209,254,23,0.55), transparent)" }}
+        style={{ background: "radial-gradient(closest-side, var(--glow), transparent)" }}
       />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-10 lg:gap-6 items-center pt-16 pb-10 lg:pt-24 lg:pb-20">
         <div className="lg:col-span-7">
@@ -45,7 +45,7 @@ export function Hero({ t }: { t: Dict["hero"] }) {
               </span>
             ))}
           </h1>
-          <p className="display mt-4 text-[clamp(1.5rem,3.2vw,2.75rem)] text-lime rise rise-2">{t.tagline}</p>
+          <p className="display mt-4 text-[clamp(1.5rem,3.2vw,2.75rem)] text-lime-ink rise rise-2">{t.tagline}</p>
           <p className="mt-7 max-w-[36rem] text-[1.0625rem] leading-relaxed text-mist rise rise-3">
             {t.text}
           </p>

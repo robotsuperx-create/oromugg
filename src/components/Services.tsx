@@ -28,13 +28,13 @@ export function Services({ t }: { t: Dict["services"] }) {
                 i % 2 === 0 ? "sm:pe-10 sm:border-e sm:border-line" : "sm:ps-10"
               }`}
             >
-              <div className="h-9 w-9 text-lime">{icons[i]}</div>
+              <div className="h-9 w-9 text-lime-ink">{icons[i]}</div>
               <h3 className="mt-5 text-2xl font-semibold">{s.title}</h3>
               <p className="mt-3 text-mist leading-relaxed max-w-[32rem]">{s.text}</p>
               <ul className="mt-5 space-y-1.5 text-[15px]">
                 {s.points.map((p) => (
                   <li key={p} className="flex gap-2.5">
-                    <span className="mt-[0.65em] h-1.5 w-1.5 rounded-full bg-lime shrink-0" aria-hidden="true" />
+                    <span className="mt-[0.65em] h-1.5 w-1.5 rounded-full bg-lime-ink shrink-0" aria-hidden="true" />
                     <span className="text-snow/85">{p}</span>
                   </li>
                 ))}

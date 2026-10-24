@@ -19,7 +19,7 @@ function Card({ p, t }: { p: Pkg; t: Dict["packages"] }) {
       <h3 className="text-xl font-semibold text-snow">{p.name}</h3>
       <p className="mt-1 text-sm text-dim">{p.who}</p>
       <div className="mt-6 flex items-baseline gap-2 flex-wrap">
-        <span className={`display text-4xl tabular-nums ${p.featured ? "text-lime" : "text-snow"}`}>{p.price}</span>
+        <span className={`display text-4xl tabular-nums ${p.featured ? "text-lime-ink" : "text-snow"}`}>{p.price}</span>
         {/\d/.test(p.price) && <span className="text-sm text-dim">{t.currency}</span>}
       </div>
       <p className="text-sm text-dim">{p.period}</p>
@@ -27,7 +27,7 @@ function Card({ p, t }: { p: Pkg; t: Dict["packages"] }) {
       <ul className="mt-6 space-y-2.5 text-[15px] text-snow/85">
         {p.includes.map((it) => (
           <li key={it} className="flex gap-2.5">
-            <svg className="mt-1 shrink-0 text-lime" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="mt-1 shrink-0 text-lime-ink" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
               <path d="M2 7.5l3 3 7-7" />
             </svg>
             <span>{it}</span>
@@ -44,6 +44,19 @@ function Card({ p, t }: { p: Pkg; t: Dict["packages"] }) {
             {t.techLabel}
           </div>
           <p className="mt-1 text-[15px] text-snow leading-snug">{p.tech}</p>
+        </div>
+      )}
+      {p.brand && (
+        <div className="mt-3 rounded-xl border border-lime/35 bg-lime/5 p-3.5">
+          <div className="flex items-center gap-2 text-[12px] text-pistachio">
+            <svg width="14" height="14" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <circle cx="16" cy="16" r="12" />
+              <circle cx="11" cy="12" r="1.6" fill="currentColor" /><circle cx="17" cy="9.5" r="1.6" fill="currentColor" /><circle cx="22" cy="14" r="1.6" fill="currentColor" />
+              <path d="M16 28c-2-3 0-6 3-6h3a4 4 0 0 0 0-8" />
+            </svg>
+            {t.brandLabel}
+          </div>
+          <p className="mt-1 text-[15px] text-snow leading-snug">{p.brand}</p>
         </div>
       )}
 
@@ -80,7 +93,7 @@ export function Packages({ t }: { t: Dict["packages"] }) {
               aria-selected={tab === k}
               onClick={() => setTab(k)}
               className={`px-5 py-2.5 rounded-full text-[15px] font-medium transition-colors ${
-                tab === k ? "bg-lime text-abyss" : "text-snow hover:bg-panel"
+                tab === k ? "bg-lime text-black" : "text-snow hover:bg-panel"
               }`}
             >
               {t.tabs[k]}

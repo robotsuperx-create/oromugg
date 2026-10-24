@@ -25,7 +25,7 @@ export function Tech({ t }: { t: Dict["tech"] }) {
             <h2 className="display text-4xl sm:text-5xl text-snow">{t.heading}</h2>
             <p className="mt-6 text-mist leading-relaxed">{t.intro}</p>
             <div className="mt-8 rounded-2xl border border-lime/40 bg-lime/5 p-5 text-[15px] leading-relaxed text-snow/90">
-              <span className="me-2 inline-block h-2 w-2 rounded-full bg-lime align-middle" aria-hidden="true" />
+              <span className="me-2 inline-block h-2 w-2 rounded-full bg-lime-ink align-middle" aria-hidden="true" />
               {t.proof}
             </div>
             <a href={whatsappLink("OROM UGG — tech")} className="btn btn-primary mt-8">
@@ -36,7 +36,7 @@ export function Tech({ t }: { t: Dict["tech"] }) {
           <ul className="lg:col-span-7 grid sm:grid-cols-2 gap-4">
             {t.items.map((it, i) => (
               <li key={it.title} className="rounded-2xl bg-panel border border-line p-6">
-                <div className="h-8 w-8 text-lime">{icons[i]}</div>
+                <div className="h-8 w-8 text-lime-ink">{icons[i]}</div>
                 <h3 className="mt-4 text-lg font-semibold text-snow">{it.title}</h3>
                 <p className="mt-2 text-[15px] text-mist leading-relaxed">{it.text}</p>
               </li>

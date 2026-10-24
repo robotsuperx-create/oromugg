@@ -1,6 +1,6 @@
 # OROM UGG — site de l'agence
 
-Next.js 16 · Tailwind 4 · quadrilingue (ar / ary darija / fr / en, RTL automatique) · thème sombre + accent lime · prêt pour Vercel.
+Next.js 16 · Tailwind 4 · quadrilingue (ar / ary darija / fr / en, RTL automatique) · thème jour/nuit (bouton dans l'en-tête, choix mémorisé) + accent lime · prêt pour Vercel.
 
 ## Lancer en local
 

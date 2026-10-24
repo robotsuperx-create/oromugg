@@ -16,7 +16,7 @@ export function Work({ t }: { t: Dict["work"] }) {
                 <span>{w.client}</span>
                 <span>{w.sector}</span>
               </div>
-              <div className="display mt-10 text-5xl tabular-nums text-lime">{w.result.split(" ")[0]}</div>
+              <div className="display mt-10 text-5xl tabular-nums text-lime-ink">{w.result.split(" ")[0]}</div>
               <div className="text-mist mt-1">{w.result.split(" ").slice(1).join(" ")}</div>
               <p className="mt-6 text-[15px] text-snow/85 leading-relaxed">{w.detail}</p>
             </article>

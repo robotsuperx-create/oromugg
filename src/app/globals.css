@@ -12,11 +12,33 @@
   --snow: #f7f7f8;         /* primary text */
   --mist: #a3a5a8;         /* secondary text */
   --dim: #898a8b;          /* tertiary text */
-  --lime: #d1fe17;         /* accent */
+  --lime: #d1fe17;         /* accent fill — identical in both themes */
+  --lime-ink: #d1fe17;     /* accent used as text/icon colour */
   --pistachio: #c5d9a2;    /* soft accent for small text */
   --olive: #2f3907;        /* deep lime for gradients */
   --line: rgba(255, 255, 255, 0.1);
   --line-strong: rgba(255, 255, 255, 0.22);
+  --glow: rgba(209, 254, 23, 0.38);
+  color-scheme: dark;
+}
+
+/* Day mode: same identity, same lime, black becomes white. */
+:root[data-theme="light"] {
+  --night: #ffffff;
+  --abyss: #f2f4ec;
+  --panel: #f7f8f3;
+  --panel-2: #eef2e3;
+  --snow: #121410;
+  --mist: #5c6057;
+  --dim: #7b7f78;
+  --lime: #d1fe17;
+  --lime-ink: #6a8a00;     /* darker lime so text stays readable on white */
+  --pistachio: #5f7a1a;
+  --olive: #2f3907;
+  --line: rgba(18, 20, 16, 0.1);
+  --line-strong: rgba(18, 20, 16, 0.24);
+  --glow: rgba(209, 254, 23, 0.55);
+  color-scheme: light;
 }
 
 @theme inline {
@@ -28,6 +50,7 @@
   --color-mist: var(--mist);
   --color-dim: var(--dim);
   --color-lime: var(--lime);
+  --color-lime-ink: var(--lime-ink);
   --color-pistachio: var(--pistachio);
   --color-olive: var(--olive);
   --color-line: var(--line);
@@ -39,7 +62,6 @@
 
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
 }
 
 body {
@@ -54,7 +76,7 @@ body {
 
 ::selection {
   background: var(--lime);
-  color: var(--abyss);
+  color: #0b0c0e;
 }
 
 /* Display type: serif Fraunces for Latin, Naskh for Arabic & Darija. */
@@ -85,7 +107,7 @@ body {
   overflow: hidden;
   background:
     radial-gradient(120% 80% at 30% 20%, rgba(209, 254, 23, 0.38), transparent 60%),
-    linear-gradient(160deg, var(--olive) 0%, #171c08 45%, var(--abyss) 100%);
+    linear-gradient(160deg, #2f3907 0%, #171c08 45%, #0b0c0e 100%);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.08) inset,
     0 0 0 1px rgba(255, 255, 255, 0.06),
@@ -168,7 +190,7 @@ body {
   transition: transform 160ms ease, background-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
 }
 .btn:active { transform: translateY(1px); }
-.btn-primary { background: var(--lime); color: var(--abyss); }
+.btn-primary { background: var(--lime); color: #0b0c0e; }
 .btn-primary:hover { background: #e0ff5a; box-shadow: 0 0 0 4px rgba(209, 254, 23, 0.18); }
 .btn-outline { border: 1px solid var(--line-strong); color: var(--snow); }
 .btn-outline:hover { background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.4); }
@@ -189,3 +211,9 @@ select.field option { background: var(--panel); color: var(--snow); }
 
 /* Hairline sections */
 .rule { border-top: 1px solid var(--line); }
+
+/* Theme toggle: show the icon of the mode you would switch to */
+.only-dark { display: inline; }
+.only-light { display: none; }
+:root[data-theme="light"] .only-dark { display: none; }
+:root[data-theme="light"] .only-light { display: inline; }

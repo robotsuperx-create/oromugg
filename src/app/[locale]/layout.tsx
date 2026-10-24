@@ -47,8 +47,15 @@ export default async function LocaleLayout({
   const l: Locale = locale;
 
   return (
-    <html lang={l} dir={dirOf(l)} className="h-full">
+    <html lang={l} dir={dirOf(l)} className="h-full" suppressHydrationWarning>
       <head>
+        <script
+          // Sets the theme before first paint: saved choice, else the system preference.
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'}document.documentElement.dataset.theme=t}catch(e){document.documentElement.dataset.theme='dark'}})();",
+          }}
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link

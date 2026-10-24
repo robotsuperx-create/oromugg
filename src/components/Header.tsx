@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Logo } from "./Logo";
+import { ThemeToggle } from "./ThemeToggle";
 import { locales, localeLabels, type Locale } from "@/i18n/config";
 import type { Dict } from "@/i18n/dictionaries";
 
@@ -27,7 +28,7 @@ export function Header({ locale, t }: { locale: Locale; t: Dict["nav"] }) {
 
         <nav className="hidden lg:flex items-center gap-6 text-[15px] text-snow">
           {links.map(([href, label]) => (
-            <a key={href} href={href} className="hover:text-lime transition-colors">
+            <a key={href} href={href} className="hover:text-lime-ink transition-colors">
               {label}
             </a>
           ))}
@@ -41,13 +42,14 @@ export function Header({ locale, t }: { locale: Locale; t: Dict["nav"] }) {
                 href={`/${l}`}
                 hrefLang={l}
                 className={`px-2.5 py-1 rounded-full transition-colors ${
-                  l === locale ? "bg-lime text-abyss" : "text-snow hover:bg-panel"
+                  l === locale ? "bg-lime text-black" : "text-snow hover:bg-panel"
                 }`}
               >
                 {localeLabels[l]}
               </Link>
             ))}
           </div>
+          <ThemeToggle label={t.theme} />
           <a href="#contact" className="btn btn-primary hidden sm:inline-flex !py-2.5 !px-4 text-sm">
             {t.cta}
           </a>
