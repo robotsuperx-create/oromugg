@@ -22,7 +22,28 @@
   color-scheme: dark;
 }
 
-/* Day mode: same identity, same lime, black becomes white. */
+/* Day mode: same identity, same lime, black becomes white.
+   Applied by CSS when the visitor's system prefers light (so the first paint is
+   already right), and by the header toggle via <html data-theme>. */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --night: #ffffff;
+    --abyss: #f2f4ec;
+    --panel: #f7f8f3;
+    --panel-2: #eef2e3;
+    --snow: #121410;
+    --mist: #5c6057;
+    --dim: #7b7f78;
+    --lime: #d1fe17;
+    --lime-ink: #6a8a00;     /* darker lime so text stays readable on white */
+    --pistachio: #5f7a1a;
+    --olive: #2f3907;
+    --line: rgba(18, 20, 16, 0.1);
+    --line-strong: rgba(18, 20, 16, 0.24);
+    --glow: rgba(209, 254, 23, 0.55);
+    color-scheme: light;
+  }
+}
 :root[data-theme="light"] {
   --night: #ffffff;
   --abyss: #f2f4ec;
