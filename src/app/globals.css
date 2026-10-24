@@ -1,0 +1,181 @@
+@import "tailwindcss";
+
+/* ─── OROM UGG design tokens ─────────────────────────────────────────
+   Palette: dark roast brown, warm umber, tan, sand, cream.
+   One memorable element per page (the film-strip hero); everything
+   else stays quiet. */
+:root {
+  --sand: #e9dfcf;
+  --cream: #f6f1e8;
+  --paper: #fbf8f3;
+  --tan: #c8a97e;
+  --umber: #6b4a32;
+  --roast: #3a2819;
+  --espresso: #241910;
+  --ink: #1b120b;
+  --line: rgba(58, 40, 25, 0.14);
+  --line-strong: rgba(58, 40, 25, 0.3);
+}
+
+@theme inline {
+  --color-sand: var(--sand);
+  --color-cream: var(--cream);
+  --color-paper: var(--paper);
+  --color-tan: var(--tan);
+  --color-umber: var(--umber);
+  --color-roast: var(--roast);
+  --color-espresso: var(--espresso);
+  --color-ink: var(--ink);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --font-display: "Fraunces", "Noto Naskh Arabic", Georgia, serif;
+  --font-body: "IBM Plex Sans Arabic", "IBM Plex Sans", system-ui, sans-serif;
+  --font-arabic-display: "Noto Naskh Arabic", "IBM Plex Sans Arabic", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-feature-settings: "kern", "liga";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* Display type: serif Fraunces for Latin, Naskh for Arabic. */
+.display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.02;
+  font-variation-settings: "opsz" 144, "SOFT" 40;
+}
+[dir="rtl"] .display {
+  font-family: var(--font-arabic-display);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.25;
+}
+
+.eyebrow {
+  font-size: 0.8125rem;
+  color: var(--umber);
+}
+
+/* Film-strip frames (hero + work) */
+.frame {
+  position: relative;
+  aspect-ratio: 9 / 16;
+  border-radius: 14px;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 80% at 30% 20%, rgba(200, 169, 126, 0.55), transparent 60%),
+    linear-gradient(160deg, var(--umber) 0%, var(--roast) 55%, var(--espresso) 100%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.08) inset,
+    0 30px 60px -30px rgba(27, 18, 11, 0.6);
+}
+.frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 3px);
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+.frame-perfs {
+  position: absolute;
+  inset-block: 10px;
+  width: 10px;
+  background-image: repeating-linear-gradient(
+    180deg,
+    rgba(246, 241, 232, 0.55) 0 7px,
+    transparent 7px 16px
+  );
+  border-radius: 2px;
+  opacity: 0.55;
+}
+
+/* Grain for dark sections */
+.grain {
+  position: relative;
+  isolation: isolate;
+}
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.08;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* One orchestrated entrance on load: hero text + strip */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes drift {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+.rise { animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.rise-2 { animation-delay: 0.12s; }
+.rise-3 { animation-delay: 0.24s; }
+.strip-drift { animation: drift 28s linear infinite; }
+.strip-drift-slow { animation: drift 38s linear infinite reverse; }
+
+@media (prefers-reduced-motion: reduce) {
+  .rise, .strip-drift, .strip-drift-slow { animation: none !important; }
+  html { scroll-behavior: auto; }
+}
+
+/* Focus */
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 2px solid var(--umber);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform 160ms ease, background-color 160ms ease, color 160ms ease;
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: var(--roast); color: var(--cream); }
+.btn-primary:hover { background: var(--espresso); }
+.btn-outline { border: 1px solid var(--line-strong); color: var(--roast); }
+.btn-outline:hover { background: var(--sand); }
+.btn-light { background: var(--cream); color: var(--roast); }
+.btn-light:hover { background: var(--paper); }
+
+/* Form fields */
+.field {
+  width: 100%;
+  border: 1px solid var(--line-strong);
+  background: var(--paper);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+.field::placeholder { color: rgba(27, 18, 11, 0.45); }
+.field:focus { border-color: var(--umber); outline: none; box-shadow: 0 0 0 3px rgba(107, 74, 50, 0.15); }
+
+/* Hairline sections */
+.rule { border-top: 1px solid var(--line); }
